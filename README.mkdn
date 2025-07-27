@@ -1,36 +1,49 @@
-LineageOS
-===========
+<a href="#"><img src="Banner.png" /></a>
 
-Getting started
----------------
+#
 
-To get started with Android/LineageOS, you'll need to get familiar with [Source Control Tools](https://source.android.com/setup/develop).
-
-To initialize your local repository using the LineageOS trees, use a command like this:
+### Create a directory for the source files & Go into created directory
 ```
-repo init -u https://github.com/LineageOS/android.git -b lineage-23.0 --git-lfs
+mkdir matrixx
+cd matrixx
 ```
-Then to sync up:
+### Initializing Repo
 ```
-repo sync
+repo init -u https://github.com/ProjectMatrixx/android.git -b 16.0 --git-lfs
 ```
-Please see the [LineageOS Wiki](https://wiki.lineageos.org/) for building instructions, by device.
 
+### Now sync sources
+```
+repo sync -c --no-clone-bundle --optimized-fetch --prune --force-sync -j$(nproc --all)
+```
 
-Submitting patches
-------------------
-Patches are always welcome! Please submit your patches via LineageOS Gerrit!
+### Now run
+```
+. build/envsetup.sh
+brunch devicecodename
+```
 
-Simply follow our guide on [how to submit patches](https://wiki.lineageos.org/submitting-patch-howto.html).
+### Build Flags ###
 
-To view the status of your and others' patches, visit [LineageOS Gerrit Code Review](https://review.lineageos.org/).
+```
+# To include Gapps 
+WITH_GMS := true
 
+```
 
-Buildbot
---------
+### To Add Maintainers name 
 
-All supported devices are built weekly and periodically as changes are committed to ensure the source trees remain buildable.
+```
+# Add in your overlay (overlay/packages/apps/Settings/res/values/strings.xml)
 
-You can view the current build statuses at [LineageOS Buildkite](https://buildkite.com/lineageos).
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2025 Project Matrixx
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Android version screen, build maintainer -->
+    <string name="matrixx_maintainer">Diddy</string>
+</resources>
 
-Builds produced weekly by the buildbot can be downloaded from [LineageOS downloads](https://download.lineageos.org/).
+```
