@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-
+  <remote  name="LineageOS-23"
+           fetch="https://github.com/"
+           revision="lineage-23.0" />
   <remote  name="LineageOS"
            fetch="https://github.com/"
            revision="lineage-22.2" />
@@ -43,7 +42,7 @@
   <project path="packages/apps/SimpleSettingsConfig" name="LineageOS/android_packages_apps_SimpleSettingsConfig" remote="LineageOS" />
   <project path="packages/apps/Twelve" name="LineageOS/android_packages_apps_Twelve" remote="LineageOS" />
   <project path="packages/resources/devicesettings" name="LineageOS/android_packages_resources_devicesettings" remote="LineageOS" />
-  <project path="prebuilts/extract-tools" name="LineageOS/android_prebuilts_extract-tools" clone-depth="1" remote="LineageOS-22.2" />
+  <project path="prebuilts/extract-tools" name="LineageOS/android_prebuilts_extract-tools" clone-depth="1" remote="LineageOS-23" />
   <project path="tools/extract-utils" name="LineageOS/android_tools_extract-utils" remote="LineageOS" />
 
   <!-- Legacy AOSP additions -->
